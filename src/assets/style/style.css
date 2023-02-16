@@ -1,0 +1,70 @@
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+#root {
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+}
+
+main img {
+    width:400px;
+    height:466px;
+}
+
+.topo {
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+}
+
+.topo button {
+    background-color: #27AE60;
+    border-radius: 6px;
+    width:200px;
+    height:60px;
+    border:none;
+    cursor: pointer;
+    color:#fff;
+    font-size:20px;
+    text-align: center;
+    margin-top:28px;
+}
+
+.container-botoes {
+    margin-top:50px;
+    max-width:680px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    box-sizing: border-box;
+    gap:10px;
+}
+
+.botoes {
+    width:40px;
+    height:40px;
+    border: solid 1px #7AA7C7;
+    background-color: #E1ECF4;
+    color: #39739D;
+    cursor:pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size:16px;
+}
+
+.botoes:disabled {
+    background-color: #9FAAB5;
+}
