@@ -1,4 +1,4 @@
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@700&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -43,6 +43,31 @@ main img {
     margin-top:28px;
 }
 
+.lado-direito {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.palavra-pra-acertar {
+    display:flex;
+    gap:5px;
+    font-size:50px;
+    text-align: center;
+    color:#000;
+    font-family: 'Noto Sans';
+    box-sizing: border-box;
+}
+
+.acertou {
+    color: green;
+}
+
+.errou {
+    color:red;
+}
+
 .container-botoes {
     margin-top:50px;
     max-width:680px;
@@ -67,4 +92,5 @@ main img {
 
 .botoes:disabled {
     background-color: #9FAAB5;
+    cursor:auto;
 }

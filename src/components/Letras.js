@@ -1,13 +1,19 @@
-export default function Letras({alfabeto}) {
-    return (
+export default function Letras({iniciarJogo, alfabeto}) {
+
+        return (
         <>
-        {alfabeto.map(l => <Letra letras={l}/>)}
+        {alfabeto.map((l, index) => <Letra 
+        key={index} 
+        iniciarJogo={iniciarJogo} 
+        letras={l}
+        />
+        )}
         </>
     )
 }
 
-function Letra({letras}){
+function Letra({iniciarJogo, letras}){
     return (
-        <button className="botoes" onClick="" disabled={true}>{letras}</button>
+        <button className="botoes" onClick="" disabled={iniciarJogo ? false : true}>{letras}</button>
     )
 }
