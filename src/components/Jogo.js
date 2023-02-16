@@ -8,7 +8,7 @@ import forca6 from '../assets/img/forca6.png';
 import palavras from './palavras';
 
 
-export default function Jogo({iniciarJogo, setIniciarJogo, palavras, renderizarPalavras, setRenderizarPalavras}){
+export default function Jogo({iniciarJogo, setIniciarJogo, palavras, renderizarPalavras, setRenderizarPalavras, chutarLetra, erro, setChutarLetra}){
 
     const imgs = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
@@ -22,15 +22,16 @@ export default function Jogo({iniciarJogo, setIniciarJogo, palavras, renderizarP
     function inicioJogo(){
             setIniciarJogo(true);
             escolherPalavra();
+            setChutarLetra([]);
         }
 
     return (
         <div className="topo">
-            <img src={imgs[0]}/>
+            <img src={imgs[erro]}/>
             <div className="lado-direito">
                  <button onClick={inicioJogo} >{iniciarJogo? "Mudar Palavra" : "Escolher Palavra"}</button>
                  <div className="palavra-pra-acertar">
-                 <RenderizarPalavra palavra={renderizarPalavras} />
+                 <RenderizarPalavra palavra={renderizarPalavras} chutarLetra={chutarLetra} />
                  </div>
             </div>
         </div>
@@ -39,6 +40,6 @@ export default function Jogo({iniciarJogo, setIniciarJogo, palavras, renderizarP
 
 function RenderizarPalavra({palavra, chutarLetra}){
     return (
-        palavra.map((l, index) => <p key={index} className="letrinhas">_</p>)
+        palavra.map((l, index) => <p key={index} className="letrinhas">{chutarLetra.includes(l) ? l : "_" }</p>)
     )
 }

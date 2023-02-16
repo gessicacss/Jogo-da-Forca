@@ -7,6 +7,8 @@ import { useState } from 'react';
 export default function App() {
   const [iniciarJogo, setIniciarJogo] = useState(false);
   const [renderizarPalavras, setRenderizarPalavras] = useState([]);
+  const [chutarLetra, setChutarLetra] = useState([]);
+  const [erro, setErro] = useState(0);
 
   return (
     <main>
@@ -16,11 +18,19 @@ export default function App() {
       palavras={palavras} 
       renderizarPalavras={renderizarPalavras} 
       setRenderizarPalavras={setRenderizarPalavras}
+      chutarLetra={chutarLetra}
+      setChutarLetra={setChutarLetra}
+      erro={erro}
       />
       <div className="container-botoes">
         <Letras 
         iniciarJogo={iniciarJogo} 
         alfabeto={alfabeto} 
+        chutarLetra={chutarLetra}
+        setChutarLetra={setChutarLetra}
+        renderizarPalavras={renderizarPalavras}
+        erro={erro}
+        setErro={setErro}
         />
         </div>
     </main>
