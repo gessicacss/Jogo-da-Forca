@@ -8,7 +8,15 @@ export default function App() {
   const [iniciarJogo, setIniciarJogo] = useState(false);
   const [renderizarPalavras, setRenderizarPalavras] = useState([]);
   const [chutarLetra, setChutarLetra] = useState([]);
+  const [botaoClicado, setBotaoClicado] = useState([]);
   const [erro, setErro] = useState(0);
+  const [palavraAcertada, setPalavraAcertada] = useState(false);
+
+  function terminarJogo() {
+      setPalavraAcertada(true);
+      setChutarLetra([renderizarPalavras]);
+      setIniciarJogo(false);
+  }
 
   return (
     <main>
@@ -21,6 +29,11 @@ export default function App() {
       chutarLetra={chutarLetra}
       setChutarLetra={setChutarLetra}
       erro={erro}
+      setErro={setErro}
+      palavraAcertada={palavraAcertada}
+      setPalavraAcertada={setPalavraAcertada}
+      setBotaoClicado={setBotaoClicado}
+      terminarJogo={terminarJogo}
       />
       <div className="container-botoes">
         <Letras 
@@ -31,6 +44,11 @@ export default function App() {
         renderizarPalavras={renderizarPalavras}
         erro={erro}
         setErro={setErro}
+        setIniciarJogo={setIniciarJogo} 
+        botaoClicado={botaoClicado}
+        setBotaoClicado={setBotaoClicado}
+        terminarJogo={terminarJogo}
+        setPalavraAcertada={setPalavraAcertada}
         />
         </div>
     </main>

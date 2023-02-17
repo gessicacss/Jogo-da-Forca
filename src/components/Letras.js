@@ -1,4 +1,14 @@
-export default function Letras({iniciarJogo, alfabeto, chutarLetra, setChutarLetra, renderizarPalavras, erro, setErro}) {
+export default function Letras({iniciarJogo, 
+    alfabeto, 
+    chutarLetra, 
+    setChutarLetra, 
+    renderizarPalavras, 
+    erro, 
+    setErro,
+    botaoClicado,
+    setBotaoClicado,
+    terminarJogo,
+    setPalavraAcertada}) {
 
         return (
         <>
@@ -11,25 +21,47 @@ export default function Letras({iniciarJogo, alfabeto, chutarLetra, setChutarLet
         letras={l}
         erro={erro}
         setErro={setErro}
+        setBotaoClicado={setBotaoClicado}
+        botaoClicado={botaoClicado}
+        terminarJogo={terminarJogo}
+        setPalavraAcertada={setPalavraAcertada}
         />
         )}
         </>
     )
 }
 
-function Letra({iniciarJogo, chutarLetra, setChutarLetra, renderizarPalavras, letras, erro, setErro}){
+function Letra({iniciarJogo, 
+    chutarLetra, 
+    setChutarLetra, 
+    renderizarPalavras, 
+    letras, 
+    erro, 
+    setErro, 
+    setBotaoClicado,
+    botaoClicado,
+    terminarJogo,
+    setPalavraAcertada
+}){
 
     function checarLetra(letra){
-            if (renderizarPalavras.includes(letra)) {
+        setBotaoClicado([...botaoClicado, letra]);
+        const contemLetra = renderizarPalavras.includes(letra);
+            if (contemLetra) {
                 setChutarLetra([...chutarLetra, letra]);
-                console.log(chutarLetra);
             } else {
-                setErro(erro + 1);
-                console.log(erro);
-            }
+                const quantidadeErros = erro + 1;
+                setErro(quantidadeErros);
+                if (quantidadeErros === 6) {
+                // setChutarLetra([renderizarPalavras]);
+                terminarJogo();
+                }
         }
+    }
+
+    const habilitarBotao = iniciarJogo && !botaoClicado.includes(letras);
 
     return (
-        <button className="botoes" onClick={() => checarLetra(letras)} disabled={iniciarJogo ? false : true}>{letras}</button>
+        <button className="botoes" onClick={() => checarLetra(letras)} disabled={habilitarBotao ? false : true}>{letras}</button>
     )
 }

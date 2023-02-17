@@ -5,10 +5,19 @@ import forca3 from '../assets/img/forca3.png';
 import forca4 from '../assets/img/forca4.png';
 import forca5 from '../assets/img/forca5.png';
 import forca6 from '../assets/img/forca6.png';
-import palavras from './palavras';
 
 
-export default function Jogo({iniciarJogo, setIniciarJogo, palavras, renderizarPalavras, setRenderizarPalavras, chutarLetra, erro, setChutarLetra}){
+export default function Jogo({iniciarJogo, 
+    setIniciarJogo, 
+    palavras, 
+    renderizarPalavras, 
+    setRenderizarPalavras, 
+    chutarLetra, 
+    erro, 
+    setErro,
+    setChutarLetra,
+    setPalavraAcertada,
+    setBotaoClicado}){
 
     const imgs = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
@@ -16,30 +25,39 @@ export default function Jogo({iniciarJogo, setIniciarJogo, palavras, renderizarP
         const palavraEmbaralhada = palavras[Math.floor(Math.random() * palavras.length - 1)]
         const palavraSeparada = palavraEmbaralhada.split('');
         setRenderizarPalavras(palavraSeparada);
-        console.log(palavraSeparada);
     }
 
     function inicioJogo(){
             setIniciarJogo(true);
             escolherPalavra();
             setChutarLetra([]);
+            setBotaoClicado([]);
+            setErro(0);
+            setPalavraAcertada(false);
         }
 
     return (
         <div className="topo">
             <img src={imgs[erro]}/>
             <div className="lado-direito">
-                 <button onClick={inicioJogo} >{iniciarJogo? "Mudar Palavra" : "Escolher Palavra"}</button>
+                 <button onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
                  <div className="palavra-pra-acertar">
-                 <RenderizarPalavra palavra={renderizarPalavras} chutarLetra={chutarLetra} />
+                 <RenderizarPalavras palavras={renderizarPalavras} chutarLetra={chutarLetra} setIniciarJogo={setIniciarJogo} setPalavraAcertada={setPalavraAcertada}/>
                  </div>
             </div>
         </div>
     );
 }
 
-function RenderizarPalavra({palavra, chutarLetra}){
+function RenderizarPalavras({palavras, chutarLetra, erro, setIniciarJogo, setPalavraAcertada}){
+    const checaPalavra = palavras.every(l => chutarLetra.includes(l));
+
+    if (checaPalavra) {
+        setIniciarJogo(false);
+        setPalavraAcertada(true);
+    }
+
     return (
-        palavra.map((l, index) => <p key={index} className="letrinhas">{chutarLetra.includes(l) ? l : "_" }</p>)
+        palavras.map((l, index) => <p key={index} className={erro === 6 ? 'errou' : checaPalavra ? 'acertou' : ''}>{chutarLetra.includes(l) ? l : "_" }</p>)
     )
 }
