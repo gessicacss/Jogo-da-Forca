@@ -29,6 +29,6 @@ function Letra({
     const habilitarBotao = iniciarJogo && !botaoClicado.includes(letras);
 
     return (
-        <button className="botoes" onClick={() => checarLetra(letras)} disabled={habilitarBotao ? false : true}>{letras}</button>
+        <button data-test="letter" className="botoes" onClick={() => checarLetra(letras)} disabled={habilitarBotao ? false : true}>{letras}</button>
     )
 }

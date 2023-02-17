@@ -22,10 +22,10 @@ export default function Jogo({
 
     return (
         <div className="topo">
-            <img src={imgs[erro]} alt="forca"/>
+            <img data-test="game-image" src={imgs[erro]} alt="forca"/>
             <div className="lado-direito">
-                 <button onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
-                 <div className="palavra-pra-acertar">
+                 <button data-test="choose-word" onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
+                 <div data-test="word" className="palavra-pra-acertar">
                  <RenderizarPalavras palavras={renderizarPalavras} chutarLetra={chutarLetra} palavraAcertada={palavraAcertada} erro={erro}/>
                  </div>
             </div>
