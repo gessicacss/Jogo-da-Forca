@@ -12,43 +12,68 @@ export default function App() {
   const [erro, setErro] = useState(0);
   const [palavraAcertada, setPalavraAcertada] = useState(false);
 
-  function terminarJogo() {
+  function escolherPalavra(){
+    const palavraEmbaralhada = palavras[Math.floor(Math.random() * palavras.length - 1)]
+    const palavraSeparada = palavraEmbaralhada.split('');
+    setRenderizarPalavras(palavraSeparada);
+}
+
+function inicioJogo(){
+        setIniciarJogo(true);
+        escolherPalavra();
+        setChutarLetra([]);
+        setBotaoClicado([]);
+        setErro(0);
+        setPalavraAcertada(false);
+    }
+
+  function terminarJogo(ganhou) {
       setPalavraAcertada(true);
-      setChutarLetra([renderizarPalavras]);
+      !ganhou && setChutarLetra([...renderizarPalavras])
       setIniciarJogo(false);
+  }
+
+  
+
+    function checarPalavra() {
+      const palavra = renderizarPalavras.every(l => chutarLetra.includes(l));
+      if (palavra) {
+        terminarJogo(true);
+      }
+    }
+
+
+    function checarLetra(letra){
+      setBotaoClicado([...botaoClicado, letra]);
+      const contemLetra = renderizarPalavras.includes(letra);
+          if (contemLetra) {
+              setChutarLetra([...chutarLetra, letra]);
+          } else {
+              const quantidadeErros = erro + 1;
+              setErro(quantidadeErros);
+              if (quantidadeErros === 6) {
+                  terminarJogo(false);
+              }
+      }
   }
 
   return (
     <main>
       <Jogo 
       iniciarJogo={iniciarJogo} 
-      setIniciarJogo={setIniciarJogo} 
-      palavras={palavras} 
       renderizarPalavras={renderizarPalavras} 
-      setRenderizarPalavras={setRenderizarPalavras}
       chutarLetra={chutarLetra}
-      setChutarLetra={setChutarLetra}
       erro={erro}
-      setErro={setErro}
       palavraAcertada={palavraAcertada}
-      setPalavraAcertada={setPalavraAcertada}
-      setBotaoClicado={setBotaoClicado}
-      terminarJogo={terminarJogo}
+      inicioJogo={inicioJogo}
+      checarPalavra={checarPalavra}
       />
       <div className="container-botoes">
         <Letras 
         iniciarJogo={iniciarJogo} 
         alfabeto={alfabeto} 
-        chutarLetra={chutarLetra}
-        setChutarLetra={setChutarLetra}
-        renderizarPalavras={renderizarPalavras}
-        erro={erro}
-        setErro={setErro}
-        setIniciarJogo={setIniciarJogo} 
         botaoClicado={botaoClicado}
-        setBotaoClicado={setBotaoClicado}
-        terminarJogo={terminarJogo}
-        setPalavraAcertada={setPalavraAcertada}
+        checarLetra={checarLetra}
         />
         </div>
     </main>
