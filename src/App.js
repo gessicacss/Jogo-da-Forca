@@ -13,9 +13,10 @@ export default function App() {
   const [erro, setErro] = useState(0);
   const [palavraAcertada, setPalavraAcertada] = useState(false);
   const [chutarPalavras, setChutarPalavras] = useState('');
+  const qntErroMax = 6;
 
   function escolherPalavra(){
-    const palavraEmbaralhada = palavras[Math.floor(Math.random() * palavras.length - 1)]
+    const palavraEmbaralhada = palavras[Math.floor(Math.random() * palavras.length - 1)];
     const palavraSeparada = palavraEmbaralhada.split('');
     setRenderizarPalavras(palavraSeparada);
 }
@@ -31,7 +32,7 @@ function inicioJogo(){
 
   function terminarJogo(ganhou) {
       setPalavraAcertada(true);
-      !ganhou && setChutarLetra([...renderizarPalavras])
+      !ganhou && setChutarLetra([...renderizarPalavras]);
       setIniciarJogo(false);
   }
 
@@ -54,7 +55,6 @@ function inicioJogo(){
       terminarJogo(true);
     }
     else if (palavraJunta !== palavraChutada){
-      const qntErroMax = 6;
       setErro(qntErroMax);
       terminarJogo(false);
     }
@@ -68,7 +68,7 @@ function inicioJogo(){
           } else {
               const quantidadeErros = erro + 1;
               setErro(quantidadeErros);
-              if (quantidadeErros === 6) {
+              if (quantidadeErros === qntErroMax) {
                   terminarJogo(false);
               }
       }
@@ -76,9 +76,9 @@ function inicioJogo(){
 
   return (
     <main>
-      <Jogo 
-      iniciarJogo={iniciarJogo} 
-      renderizarPalavras={renderizarPalavras} 
+      <Jogo
+      iniciarJogo={iniciarJogo}
+      renderizarPalavras={renderizarPalavras}
       chutarLetra={chutarLetra}
       erro={erro}
       palavraAcertada={palavraAcertada}
@@ -87,14 +87,14 @@ function inicioJogo(){
       checarPalavra={checarPalavra}
       />
       <div className="container-botoes">
-        <Letras 
-        iniciarJogo={iniciarJogo} 
-        alfabeto={alfabeto} 
+        <Letras
+        iniciarJogo={iniciarJogo}
+        alfabeto={alfabeto}
         botaoClicado={botaoClicado}
         checarLetra={checarLetra}
         />
         </div>
-        <Chute 
+        <Chute
         iniciarJogo={iniciarJogo}
         chutarPalavras={chutarPalavras}
         checarInput={checarInput}

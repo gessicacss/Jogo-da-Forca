@@ -22,6 +22,6 @@ const palavras = [
     "vela", "valeta", "vacilo", "valor", "vagem", "vadiagem", "vaca", "valentia", "vidro", "valsa",
     "xadrez", "xilofone", "xarope", "xenofobia", "xereta", "xerife", "xaveco", "xixi", "xale",
     "zebra", "zagueiro", "zero", "zoeira", "zepelim", "zinco", "zumbido"
-]
+];
 
 export default palavras;

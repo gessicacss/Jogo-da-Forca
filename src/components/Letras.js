@@ -1,27 +1,27 @@
 export default function Letras({
-    iniciarJogo, 
-    alfabeto, 
+    iniciarJogo,
+    alfabeto,
     botaoClicado,
     checarLetra
 }) {
 
         return (
         <>
-        {alfabeto.map((l, index) => <Letra 
-        key={index} 
-        iniciarJogo={iniciarJogo} 
+        {alfabeto.map((l, index) => <Letra
+        key={index}
+        iniciarJogo={iniciarJogo}
         letras={l}
         botaoClicado={botaoClicado}
         checarLetra={checarLetra}
         />
         )}
         </>
-    )
+    );
 }
 
 function Letra({
-    iniciarJogo, 
-    letras, 
+    iniciarJogo,
+    letras,
     checarLetra,
     botaoClicado,
 }){
@@ -29,5 +29,5 @@ function Letra({
 
     return (
         <button data-test="letter" className="botoes" onClick={() => checarLetra(letras)} disabled={habilitarBotao ? false : true}>{letras}</button>
-    )
+    );
 }
