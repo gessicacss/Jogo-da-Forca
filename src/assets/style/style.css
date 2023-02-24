@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Roboto:wght@700&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -33,7 +33,6 @@ main img {
 .topo button {
     background-color: #27AE60;
     border-radius: 6px;
-    font-weight: 700;
     width:200px;
     height:60px;
     border:none;
@@ -102,53 +101,4 @@ main img {
 .botoes:disabled {
     background-color: #9FAAB5;
     cursor:auto;
-}
-
-.chute {
-    margin-top:50px;
-    display:flex;
-    width: 650px;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
-}
-
-.chute input {
-    width:353px;
-    height:40px;
-    background: #FFFFFF;
-    border: 1px solid #CCCCCC;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
-}
-
-.chute input::placeholder{
-    font-size:20px;
-}
-
-.chute p {
-    font-size:20px;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-}
-
-.chute button {
-    width:100px;
-    height:40px;
-    background: #E1ECF4;
-    border: 1px solid #7AA7C7;
-    border-radius: 3px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:700;
-    color:#3c76a1;
-}
-
-.chute button:disabled{
-    background-color: #9FAAB5;
-    cursor:auto;
-}
-
-.chute button:active {
-    background-color:#9ce0b8;
 }

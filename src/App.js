@@ -3,7 +3,6 @@ import palavras from './palavras';
 import Jogo from './components/Jogo';
 import Letras from './components/Letras';
 import { useState } from 'react';
-import Chute from './components/Chute';
 
 export default function App() {
   const [iniciarJogo, setIniciarJogo] = useState(false);
