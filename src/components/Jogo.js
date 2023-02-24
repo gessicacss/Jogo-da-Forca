@@ -18,7 +18,6 @@ export default function Jogo({
 
     const imgs = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
     console.log(renderizarPalavras);
-    checarPalavra();
 
     return (
         <div className="topo">
