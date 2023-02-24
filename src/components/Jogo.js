@@ -24,7 +24,7 @@ export default function Jogo({
             <img data-test="game-image" src={imgs[erro]} alt="forca"/>
             <div className="lado-direito">
                  <button data-test="choose-word" onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
-                 <p data-test="word" style={{visibility: renderizarPalavras.length <= 0 ? 'hidden' : 'visible'}} className={erro === 6 ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
+                 <p data-test="word" className={erro === 6 ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
                  <RenderizarPalavras palavras={renderizarPalavras} chutarLetra={chutarLetra}/>
                  </p>
             </div>
