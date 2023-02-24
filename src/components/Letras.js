@@ -1,7 +1,6 @@
 export default function Letras({
     iniciarJogo, 
     alfabeto, 
-    setErro,
     botaoClicado,
     checarLetra
 }) {

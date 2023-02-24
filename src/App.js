@@ -33,14 +33,12 @@ function inicioJogo(){
       setIniciarJogo(false);
   }
 
-  
-
-    function checarPalavra() {
-      const palavra = renderizarPalavras.every(l => chutarLetra.includes(l));
-      if (palavra) {
-        terminarJogo(true);
-      }
+  function checarPalavra() {
+    const palavra = renderizarPalavras.every(l => chutarLetra.includes(l));
+    if (palavra) {
+      terminarJogo(true);
     }
+}
 
 
     function checarLetra(letra){
@@ -66,6 +64,7 @@ function inicioJogo(){
       erro={erro}
       palavraAcertada={palavraAcertada}
       inicioJogo={inicioJogo}
+      terminarJogo={terminarJogo}
       checarPalavra={checarPalavra}
       />
       <div className="container-botoes">

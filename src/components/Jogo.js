@@ -17,7 +17,7 @@ export default function Jogo({
     checarPalavra}){
 
     const imgs = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
-
+    console.log(renderizarPalavras)
     checarPalavra();
 
     return (
@@ -25,9 +25,9 @@ export default function Jogo({
             <img data-test="game-image" src={imgs[erro]} alt="forca"/>
             <div className="lado-direito">
                  <button data-test="choose-word" onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
-                 <div data-test="word" className={erro === 6 ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
+                 <p data-test="word" className={erro === 6 ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
                  <RenderizarPalavras palavras={renderizarPalavras} chutarLetra={chutarLetra}/>
-                 </div>
+                 </p>
             </div>
         </div>
     );

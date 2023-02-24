@@ -50,7 +50,7 @@ main img {
     align-items: flex-end;
 }
 
-.lado-direito div {
+.lado-direito p {
     display:flex;
     letter-spacing:5px;
     font-size:50px;
