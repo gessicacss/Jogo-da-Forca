@@ -36,12 +36,12 @@ function inicioJogo(){
       setIniciarJogo(false);
   }
 
-//   function checarPalavra() {
-//     const palavra = renderizarPalavras.every(l => chutarLetra.includes(l));
-//     if (palavra) {
-//       terminarJogo(true);
-//     }
-// }
+  function checarPalavra() {
+    const palavra = renderizarPalavras.every(l => chutarLetra.includes(l));
+    if (palavra) {
+      terminarJogo(true);
+    }
+}
 
   function checarInput(e){
     setChutarPalavras(e.target.value);
@@ -84,7 +84,7 @@ function inicioJogo(){
       palavraAcertada={palavraAcertada}
       inicioJogo={inicioJogo}
       terminarJogo={terminarJogo}
-      // checarPalavra={checarPalavra}
+      checarPalavra={checarPalavra}
       qntErroMax={qntErroMax}
       />
       <div className="container-botoes">
