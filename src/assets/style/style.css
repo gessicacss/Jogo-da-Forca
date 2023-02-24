@@ -50,14 +50,17 @@ main img {
     align-items: flex-end;
 }
 
-.palavra-pra-acertar {
+.lado-direito div {
     display:flex;
-    gap:3px;
+    letter-spacing:5px;
     font-size:50px;
     text-align: center;
-    color:#000;
     font-family: 'Noto Sans';
     box-sizing: border-box;
+}
+
+.normal {
+    color: black;
 }
 
 .acertou {
