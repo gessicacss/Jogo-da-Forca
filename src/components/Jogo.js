@@ -25,17 +25,11 @@ export default function Jogo({
             <img data-test="game-image" src={imgs[erro]} alt="forca"/>
             <div className="lado-direito">
                  <button data-test="choose-word" onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
-                 <p data-test="word" style={{display: !iniciarJogo ? 'none' : "initial"}}
+                 <p data-test="word" style={{display: renderizarPalavras.length <= 0 ? 'none' : "initial"}}
                  className={erro === qntErroMax ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
-                 <RenderizarPalavras palavras={renderizarPalavras} chutarLetra={chutarLetra}/>
+                 {renderizarPalavras.map((l) => {return chutarLetra.includes(l) ? l : "_";})}
                  </p>
             </div>
         </div>
-    );
-}
-
-function RenderizarPalavras({palavras, chutarLetra}){
-    return (
-        palavras.map((l) => {return chutarLetra.includes(l) ? l : "_";})
     );
 }
