@@ -1,4 +1,4 @@
-import alfabeto from './components/alfabeto'
+import alfabeto from './components/alfabeto';
 import palavras from './palavras';
 import Jogo from './components/Jogo';
 import Letras from './components/Letras';
@@ -53,8 +53,7 @@ function inicioJogo(){
     if (palavraJunta === palavraChutada){
       setChutarLetra([...renderizarPalavras]);
       terminarJogo(true);
-    }
-    else if (palavraJunta !== palavraChutada){
+    } else {
       setErro(qntErroMax);
       terminarJogo(false);
     }
@@ -86,6 +85,7 @@ function inicioJogo(){
       inicioJogo={inicioJogo}
       terminarJogo={terminarJogo}
       checarPalavra={checarPalavra}
+      qntErroMax={qntErroMax}
       />
       <div className="container-botoes">
         <Letras
