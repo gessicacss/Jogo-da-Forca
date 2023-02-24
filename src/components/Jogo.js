@@ -18,7 +18,8 @@ export default function Jogo({
 
     const imgs = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
     console.log(renderizarPalavras);
-    checarPalavra();
+    // checarPalavra();
+    const palavra = renderizarPalavras.every(l => chutarLetra.includes(l));
 
     return (
         <div className="topo">
@@ -26,7 +27,7 @@ export default function Jogo({
             <div className="lado-direito">
                  <button data-test="choose-word" onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
                  <p data-test="word" style={{display: renderizarPalavras.length <= 0 ? 'none' : "initial"}}
-                 className={erro === qntErroMax ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
+                 className={erro === qntErroMax ? 'errou' : palavra ? 'acertou' : 'normal'}>
                  {renderizarPalavras.map((l) => {return chutarLetra.includes(l) ? l : "_";})}
                  </p>
             </div>
