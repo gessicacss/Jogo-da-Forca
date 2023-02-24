@@ -58,6 +58,7 @@ function inicioJogo(){
       setErro(qntErroMax);
       terminarJogo(false);
     }
+    setChutarPalavras('');
   }
 
     function checarLetra(letra){
