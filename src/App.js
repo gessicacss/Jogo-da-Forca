@@ -3,6 +3,7 @@ import palavras from './palavras';
 import Jogo from './components/Jogo';
 import Letras from './components/Letras';
 import { useState } from 'react';
+import Chute from './components/Chute';
 
 export default function App() {
   const [iniciarJogo, setIniciarJogo] = useState(false);
@@ -11,6 +12,7 @@ export default function App() {
   const [botaoClicado, setBotaoClicado] = useState([]);
   const [erro, setErro] = useState(0);
   const [palavraAcertada, setPalavraAcertada] = useState(false);
+  const [chutarPalavras, setChutarPalavras] = useState('');
 
   function escolherPalavra(){
     const palavraEmbaralhada = palavras[Math.floor(Math.random() * palavras.length - 1)]
@@ -40,6 +42,23 @@ function inicioJogo(){
     }
 }
 
+  function checarInput(e){
+    setChutarPalavras(e.target.value);
+  }
+
+  function checarChute(){
+    const palavraJunta = renderizarPalavras.join('');
+    const palavraChutada = chutarPalavras.toLowerCase();
+    if (palavraJunta === palavraChutada){
+      setChutarLetra([...renderizarPalavras]);
+      terminarJogo(true);
+    }
+    else if (palavraJunta !== palavraChutada){
+      const qntErroMax = 6;
+      setErro(qntErroMax);
+      terminarJogo(false);
+    }
+  }
 
     function checarLetra(letra){
       setBotaoClicado([...botaoClicado, letra]);
@@ -75,6 +94,12 @@ function inicioJogo(){
         checarLetra={checarLetra}
         />
         </div>
+        <Chute 
+        iniciarJogo={iniciarJogo}
+        chutarPalavras={chutarPalavras}
+        checarInput={checarInput}
+        checarChute={checarChute}
+        />
     </main>
   );
 }
