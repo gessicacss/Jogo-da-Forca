@@ -13,8 +13,7 @@ export default function Jogo({
     erro,
     palavraAcertada,
     inicioJogo,
-    qntErroMax,
-    checarPalavra}){
+    qntErroMax}){
 
     const imgs = [forca0, forca1, forca2, forca3, forca4, forca5, forca6];
 
