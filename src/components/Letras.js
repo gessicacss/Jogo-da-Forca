@@ -4,7 +4,6 @@ export default function Letras({
     botaoClicado,
     checarLetra
 }) {
-
         return (
         <>
         {alfabeto.map((l, index) => <Letra

@@ -51,10 +51,6 @@ main img {
     align-items: flex-end;
 }
 
-.escondido {
-    display: none;
-}
-
 .lado-direito p {
     display:initial;
     letter-spacing:5px;
@@ -103,7 +99,6 @@ main img {
     background-color: #9FAAB5;
     cursor:auto;
 }
-
 
 .chute {
     margin-top:50px;
