@@ -76,7 +76,6 @@ function inicioJogo(){
   return (
     <main>
       <Jogo
-      iniciarJogo={iniciarJogo}
       renderizarPalavras={renderizarPalavras}
       chutarLetra={chutarLetra}
       erro={erro}

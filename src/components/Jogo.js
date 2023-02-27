@@ -7,7 +7,6 @@ import forca5 from '../assets/img/forca5.png';
 import forca6 from '../assets/img/forca6.png';
 
 export default function Jogo({
-    iniciarJogo,
     renderizarPalavras,
     chutarLetra,
     erro,
@@ -21,7 +20,7 @@ export default function Jogo({
         <div className="topo">
             <img data-test="game-image" src={imgs[erro]} alt="forca"/>
             <div className="lado-direito">
-                 <button data-test="choose-word" onClick={inicioJogo} >Escolher Palavra</button>
+                 <button data-test="choose-word" onClick={inicioJogo}>Escolher Palavra</button>
                  <p data-test="word"
                  className={erro === qntErroMax ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
                  {renderizarPalavras.map((l) => {return chutarLetra.includes(l) ? l : "_";})}
