@@ -16,8 +16,8 @@ export default function App() {
   const qntErroMax = 6;
 
   function escolherPalavra(){
-    const embaralhar = Math.floor(Math.random() * palavras.length - 1);
-    const palavraSeparada = palavras[embaralhar].split('');
+    const embaralhar = palavras[Math.floor(Math.random() * palavras.length)];
+    const palavraSeparada = embaralhar.split('');
     setRenderizarPalavras(palavraSeparada);
 }
 
