@@ -21,8 +21,8 @@ export default function Jogo({
         <div className="topo">
             <img data-test="game-image" src={imgs[erro]} alt="forca"/>
             <div className="lado-direito">
-                 <button data-test="choose-word" onClick={inicioJogo} >{iniciarJogo ? "Mudar Palavra" : "Escolher Palavra"}</button>
-                 <p data-test="word" style={{display: renderizarPalavras.length <= 0 ? 'none' : "initial"}}
+                 <button data-test="choose-word" onClick={inicioJogo} >Escolher Palavra</button>
+                 <p data-test="word"
                  className={erro === qntErroMax ? 'errou' : palavraAcertada ? 'acertou' : 'normal'}>
                  {renderizarPalavras.map((l) => {return chutarLetra.includes(l) ? l : "_";})}
                  </p>
