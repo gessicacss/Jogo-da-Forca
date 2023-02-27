@@ -15,6 +15,7 @@ export default function App() {
   const [chutarPalavras, setChutarPalavras] = useState('');
   const qntErroMax = 6;
 
+
   function escolherPalavra(){
     const embaralhar = palavras[Math.floor(Math.random() * palavras.length)];
     const palavraSeparada = embaralhar.split('');
